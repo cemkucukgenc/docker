@@ -14,6 +14,9 @@ RUN apt-get update && apt-get upgrade -y && \
     apt-get install -y libgl1-mesa-glx libgl1-mesa-dri intel-opencl-icd intel-media-va-driver-non-free xserver-xorg-video-intel && \
     rm -rf /var/lib/apt/lists/*
 
+# Reset the environment variable
+ENV DEBIAN_FRONTEND=
+
 # For easy sourcing of ROS workspace
 COPY rosource.sh /usr/local/bin/rosource
 RUN chmod +x /usr/local/bin/rosource
