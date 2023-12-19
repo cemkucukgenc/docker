@@ -19,7 +19,7 @@ COPY rosource.sh /usr/local/bin/rosource
 RUN chmod +x /usr/local/bin/rosource
 
 # To build the docker image, run the following command:
-# sudo docker image build -t <image_name> .
+# sudo docker image build -t aas_image .
 
 # To delete the old docker image, run the following command:
 # sudo docker images

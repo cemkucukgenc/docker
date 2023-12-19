@@ -15,7 +15,7 @@ sudo docker run \
   --name $container_name \
   -it \
   -d \
-  aas_image
+  innok_image
 
 sleep 2
 

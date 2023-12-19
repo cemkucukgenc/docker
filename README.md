@@ -23,5 +23,5 @@ xhost +local:root
 ```
 ## Useful tutorials
 
-- https://www.youtube.com/watch?v=qWuudNxFGOQ&list=LL&index=2
-- https://www.youtube.com/watch?v=oULAVsGlLe8&list=LL&index=6&t=493s
+- https://www.youtube.com/watch?v=qWuudNxFGOQ
+- https://www.youtube.com/watch?v=oULAVsGlLe8&t
