@@ -1,6 +1,6 @@
 #!/bin/bash
 
-catkin_ws_path="/sabes_ws/sabes_project/catkin_ws" # Change this to your catkin_ws path
+catkin_ws_path="/sabes_ws/darknet_ros_3d_v1/catkin_ws" # Change this to your catkin_ws path
 
 source $catkin_ws_path/devel/setup.bash
 

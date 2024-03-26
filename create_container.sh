@@ -1,21 +1,24 @@
 #!/bin/bash
 
-container_name="autsys_container" # Change this to your container name
-catkin_ws_path="/autsys_ws/tum_autsys_project/catkin_ws" # Change this to your catkin_ws path
+container_name="sabes_container_noetic"               # Change this to your container name
+catkin_ws_path="/sabes_ws/darknet_ros_3d_v1/catkin_ws" # Change this to your catkin_ws path
 
 xhost +
-sudo docker run \
-  --net=host \
-  --volume="/tmp/.X11-unix:/tmp/.X11-unix:rw" \
-  --volume="$HOME/.Xauthority:/root/.Xauthority:rw" \
-  --volume=/home/cemkgenc/autsys_ws:/autsys_ws \
-  --device=/dev/dri:/dev/dri \
-  --env="DISPLAY=$DISPLAY" \
-  --env="QT_X11_NO_MITSHM=1" \
-  --name $container_name \
-  -it \
-  -d \
-  autsys_image
+#sudo 
+docker run \
+    --net=host \
+    --volume="/tmp/.X11-unix:/tmp/.X11-unix:rw" \
+    --volume="$HOME/.Xauthority:/root/.Xauthority:rw" \
+    --volume=/home/cemkgenc/sabes_ws:/sabes_ws \
+    --volume=/dev:/dev \
+    --device-cgroup-rule='c 81:* rmw' \
+    --device-cgroup-rule='c 189:* rmw' \
+    --env="DISPLAY=$DISPLAY" \
+    --env="QT_X11_NO_MITSHM=1" \
+    --name $container_name \
+    -it \
+    -d \
+    sabes_image_noetic
 
 sleep 2
 
@@ -25,7 +28,8 @@ GREEN='\033[0;32m'
 YELLOW='\033[0;33m'
 RESET='\033[0m'
 
-sudo docker exec -it $container_name bash -c "
+#sudo 
+docker exec -it $container_name bash -c "
     sudo apt update && sudo apt upgrade -y
     if [ -f '/opt/ros/noetic/setup.bash' ]; then
         source /opt/ros/noetic/setup.bash && \

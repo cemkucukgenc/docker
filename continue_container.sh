@@ -1,7 +1,7 @@
 #!/bin/bash
 
-container_name="autsys_container" # Change this to your container name
-catkin_ws_path="/autsys_ws/tum_autsys_project/catkin_ws" # Change this to your catkin_ws path
+container_name="sabes_container_noetic"               # Change this to your container name
+catkin_ws_path="/sabes_ws/darknet_ros_3d_v1/catkin_ws" # Change this to your catkin_ws path
 
 # ANSI escape codes for colors
 RED='\033[0;31m'
@@ -9,7 +9,8 @@ GREEN='\033[0;32m'
 YELLOW='\033[0;33m'
 RESET='\033[0m'
 
-sudo docker exec -it $container_name bash -c "
+#sudo
+docker exec -it $container_name bash -c "
     if [ -f '/opt/ros/noetic/setup.bash' ]; then
         source /opt/ros/noetic/setup.bash && \
         if [ \$? -eq 0 ]; then
